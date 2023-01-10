@@ -1,0 +1,71 @@
+module = {}
+local curl = require('lcurl')
+local json = require "json"
+local https = require('ssl.https')
+local ltn12 = require('ltn12')
+
+function https_get(link)
+local resp = {}
+	
+local body, code, headers = https.request{
+                                url = link,
+                             --   headers = { ['Connection'] = 'close' },        
+                                sink = ltn12.sink.table(resp)
+                                 } 
+		source = table.concat(resp)
+		return source
+end
+
+function sleep(i)
+	local sec ;
+	sec = i * 1000
+	usleep(sec)
+end
+
+
+function get_temp_mail ()
+	while true do
+		scr = https_get ("https://10minutemail.net/address.api.php?new=1")
+		email = string.match (scr , '"mail_get_mail":"(.-)"' )
+		sessionid = string.match (scr , '"session_id":"(.-)"' )
+			if (email ~= nil ) then
+				toast (email)
+				return email , sessionid
+			else
+				toast ("Err" .. scr )
+				sleep (2000)
+			end
+	end --while
+end
+
+
+
+
+function get_code_temp_mail (sessionid)
+otp = "false"	
+	for i = 1 , 60 , 1 do
+		toast ("Đang đợi mail " .. i )
+		scr = https_get ("https://10minutemail.net/address.api.php?sessionid="..sessionid)
+		mailid = string.match (scr , '"mail_id":"(.-)","from":"noreply@lunarcrush.com"'	)
+		if ( mailid ~= nil ) then
+			scr = https_get ("https://10minutemail.net//mail.api.php?mailid="..mailid.."&sessionid="..sessionid)
+			scr = string.gsub (scr , " ","")
+			scr = string.gsub(scr, "([^%w ])", "")
+			otp = string.match (scr , '8pxfontweightboldn(.-)nspan')
+			return otp 
+		else
+			sleep (1000)
+		end	
+	end	
+end	
+----- (1) get mail -----
+email , sessionid =  get_temp_mail ()
+log (email)
+log (sessionid)
+
+----- (2) ----- get otp -- cần sessionid lấy được lúc get mail -----
+otp = get_code_temp_mail ("9f4204f683b590c0daded76b6c59bc0a")
+log (otp)
+toast (otp , 5 )
+
+	

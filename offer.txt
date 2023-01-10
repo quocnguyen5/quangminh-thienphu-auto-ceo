@@ -1,0 +1,7 @@
+2,adfast,http://adartaxmedia.com/xearn/MzgwX3RodWFudGhlb2x5dHJvaQ==-,Zigazoo,US,iphone
+3,adfast,http://adartaxmedia.com/xearn/MzgxX3RodWFudGhlb2x5dHJvaQ==-,Zigazoo,US,iphone
+4,adfast,http://adartaxmedia.com/xearn/MzgyX3RodWFudGhlb2x5dHJvaQ==-,id1595743071,US,iphone
+5,adfast,http://adartaxmedia.com/xearn/MzgzX3RodWFudGhlb2x5dHJvaQ==-,Starbucks,US,iphone
+6,adfast,http://adartaxmedia.com/xearn/Mzg0X3RodWFudGhlb2x5dHJvaQ==-,Starbucks,US,iphone
+7,adfast,http://adartaxmedia.com/xearn/Mzg1X3RodWFudGhlb2x5dHJvaQ==-,Angi,US,iphone
+8,adfast,http://adartaxmedia.com/xearn/Mzg2X3RodWFudGhlb2x5dHJvaQ==-,Popeyes,US,iphone

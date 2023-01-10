@@ -1,0 +1,14 @@
+python-util
+firebase_admin
+schedule
+peewee
+flask
+
+pydub==0.25.1
+selenium==3.141.0
+SpeechRecognition==3.8.1
+urllib3==1.26.6
+stem==1.8.0
+pysocks
+python-10minutemail
+fake-useragent
